@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+
+    <title>Наша история</title>
+    <link rel="shortcut icon" href="icon.png" type="image/png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <main class="audio-app">
+      <!-- Верхняя часть -->
+      <header class="header">
+        <a href="#" class="logo"> Наша история </a>
+
+        <div class="counter">
+          <span id="currentNumber">01</span>
+          <span class="counter-divider">/</span>
+          <span id="totalNumber">06</span>
+        </div>
+      </header>
+
+      <!-- Слайдер -->
+      <section class="slider">
+        <div class="slides" id="slides">
+          <!-- Аудио 01 -->
+          <article class="slide">
+            <div class="audio-card">
+              <div class="audio-number">00</div>
+
+              <div class="audio-content">
+                <p class="audio-label">Аудиозапись</p>
+
+                <h1 class="audio-title">Дисклеймер</h1>
+
+                <p class="audio-description">Привет, буся)</p>
+
+                <div class="player">
+                  <button class="play-button" aria-label="Воспроизвести">
+                    <svg class="play-icon" viewBox="0 0 24 24" fill="none">
+                      <path d="M8 5L19 12L8 19V5Z" fill="currentColor" />
+                    </svg>
+
+                    <svg class="pause-icon" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M7 5V19M17 5V19"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </button>
+
+                  <div class="player-info">
+                    <div class="progress-container">
+                      <div class="progress"></div>
+                    </div>
+
+                    <div class="time">
+                      <span class="current-time">0:00</span>
+                      <span class="duration">0:00</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Аудио 02 -->
+          <article class="slide">
+            <div class="audio-card">
+              <div class="audio-number">01</div>
+
+              <div class="audio-content">
+                <p class="audio-label">Аудиозапись</p>
+
+                <h1 class="audio-title">Оля, просто Оля</h1>
+
+                <p class="audio-description">
+                  Тут, буся, мы впервые встретились
+                </p>
+
+                <div class="player">
+                  <button class="play-button" aria-label="Воспроизвести">
+                    <svg class="play-icon" viewBox="0 0 24 24">
+                      <path d="M8 5L19 12L8 19V5Z" fill="currentColor" />
+                    </svg>
+
+                    <svg class="pause-icon" viewBox="0 0 24 24">
+                      <path
+                        d="M7 5V19M17 5V19"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </button>
+
+                  <div class="player-info">
+                    <div class="progress-container">
+                      <div class="progress"></div>
+                    </div>
+
+                    <div class="time">
+                      <span class="current-time">0:00</span>
+                      <span class="duration">0:00</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Аудио 03 -->
+          <article class="slide">
+            <div class="audio-card">
+              <div class="audio-number">02</div>
+
+              <div class="audio-content">
+                <p class="audio-label">Аудиозапись</p>
+
+                <h1 class="audio-title">Телеграмм</h1>
+
+                <p class="audio-description">
+                  Вот тут, буся, у тебя в телеграмме появился контакт 13 летнего
+                  мальчика :)
+                </p>
+
+                <div class="player">
+                  <button class="play-button" aria-label="Воспроизвести">
+                    <svg class="play-icon" viewBox="0 0 24 24">
+                      <path d="M8 5L19 12L8 19V5Z" fill="currentColor" />
+                    </svg>
+
+                    <svg class="pause-icon" viewBox="0 0 24 24">
+                      <path
+                        d="M7 5V19M17 5V19"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </button>
+
+                  <div class="player-info">
+                    <div class="progress-container">
+                      <div class="progress"></div>
+                    </div>
+
+                    <div class="time">
+                      <span class="current-time">0:00</span>
+                      <span class="duration">0:00</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Аудио 04 -->
+          <article class="slide">
+            <div class="audio-card">
+              <div class="audio-number">03</div>
+
+              <div class="audio-content">
+                <p class="audio-label">Аудиозапись</p>
+
+                <h1 class="audio-title">Переломный момент...</h1>
+
+                <p class="audio-description">ПАМ-ПАМ-ПАМ</p>
+
+                <div class="player">
+                  <button class="play-button" aria-label="Воспроизвести">
+                    <svg class="play-icon" viewBox="0 0 24 24">
+                      <path d="M8 5L19 12L8 19V5Z" fill="currentColor" />
+                    </svg>
+
+                    <svg class="pause-icon" viewBox="0 0 24 24">
+                      <path
+                        d="M7 5V19M17 5V19"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </button>
+
+                  <div class="player-info">
+                    <div class="progress-container">
+                      <div class="progress"></div>
+                    </div>
+
+                    <div class="time">
+                      <span class="current-time">0:00</span>
+                      <span class="duration">0:00</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Аудио 05 -->
+          <article class="slide">
+            <div class="audio-card">
+              <div class="audio-number">04</div>
+
+              <div class="audio-content">
+                <p class="audio-label">Аудиозапись</p>
+
+                <h1 class="audio-title">Встретимся завтра...</h1>
+
+                <p class="audio-description">
+                  Тут, буся, те самые 10 фотографий, которые изменили мою жизнь
+                </p>
+
+                <div class="player">
+                  <button class="play-button" aria-label="Воспроизвести">
+                    <svg class="play-icon" viewBox="0 0 24 24">
+                      <path d="M8 5L19 12L8 19V5Z" fill="currentColor" />
+                    </svg>
+
+                    <svg class="pause-icon" viewBox="0 0 24 24">
+                      <path
+                        d="M7 5V19M17 5V19"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </button>
+
+                  <div class="player-info">
+                    <div class="progress-container">
+                      <div class="progress"></div>
+                    </div>
+
+                    <div class="time">
+                      <span class="current-time">0:00</span>
+                      <span class="duration">0:00</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Аудио 06 -->
+          <article class="slide">
+            <div class="audio-card">
+              <div class="audio-number">05</div>
+
+              <div class="audio-content">
+                <p class="audio-label">Аудиозапись</p>
+
+                <h1 class="audio-title">Да, просто интересно</h1>
+
+                <p class="audio-description">
+                  Самая прекрасная девушка на свете...
+                </p>
+
+                <div class="player">
+                  <button class="play-button" aria-label="Воспроизвести">
+                    <svg class="play-icon" viewBox="0 0 24 24">
+                      <path d="M8 5L19 12L8 19V5Z" fill="currentColor" />
+                    </svg>
+
+                    <svg class="pause-icon" viewBox="0 0 24 24">
+                      <path
+                        d="M7 5V19M17 5V19"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </button>
+
+                  <div class="player-info">
+                    <div class="progress-container">
+                      <div class="progress"></div>
+                    </div>
+
+                    <div class="time">
+                      <span class="current-time">0:00</span>
+                      <span class="duration">0:00</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="slide">
+            <div class="audio-card">
+              <div class="audio-number">06</div>
+
+              <div class="audio-content">
+                <p class="audio-label">Аудиозапись</p>
+
+                <h1 class="audio-title">Белый сникерс</h1>
+
+                <p class="audio-description">
+                  ООО да, как только увидимся, так сразу скушаем
+                </p>
+
+                <div class="player">
+                  <button class="play-button" aria-label="Воспроизвести">
+                    <svg class="play-icon" viewBox="0 0 24 24">
+                      <path d="M8 5L19 12L8 19V5Z" fill="currentColor" />
+                    </svg>
+
+                    <svg class="pause-icon" viewBox="0 0 24 24">
+                      <path
+                        d="M7 5V19M17 5V19"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </button>
+
+                  <div class="player-info">
+                    <div class="progress-container">
+                      <div class="progress"></div>
+                    </div>
+
+                    <div class="time">
+                      <span class="current-time">0:00</span>
+                      <span class="duration">0:00</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="slide">
+            <div class="audio-card">
+              <div class="audio-number">07</div>
+
+              <div class="audio-content">
+                <p class="audio-label">Аудиозапись</p>
+
+                <h1 class="audio-title">Выглядит, как мечта</h1>
+
+                <p class="audio-description">
+                  Тот самый момент, буся, когда мы еще даже не догадывались
+                </p>
+
+                <div class="player">
+                  <button class="play-button" aria-label="Воспроизвести">
+                    <svg class="play-icon" viewBox="0 0 24 24">
+                      <path d="M8 5L19 12L8 19V5Z" fill="currentColor" />
+                    </svg>
+
+                    <svg class="pause-icon" viewBox="0 0 24 24">
+                      <path
+                        d="M7 5V19M17 5V19"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </button>
+
+                  <div class="player-info">
+                    <div class="progress-container">
+                      <div class="progress"></div>
+                    </div>
+
+                    <div class="time">
+                      <span class="current-time">0:00</span>
+                      <span class="duration">0:00</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="slide">
+            <div class="audio-card">
+              <div class="audio-number">08</div>
+
+              <div class="audio-content">
+                <p class="audio-label">Аудиозапись</p>
+
+                <h1 class="audio-title">Чувства</h1>
+
+                <p class="audio-description">
+                  Спасибо, за каждый теплый вечер, который ты мне подарила
+                </p>
+
+                <div class="player">
+                  <button class="play-button" aria-label="Воспроизвести">
+                    <svg class="play-icon" viewBox="0 0 24 24">
+                      <path d="M8 5L19 12L8 19V5Z" fill="currentColor" />
+                    </svg>
+
+                    <svg class="pause-icon" viewBox="0 0 24 24">
+                      <path
+                        d="M7 5V19M17 5V19"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </button>
+
+                  <div class="player-info">
+                    <div class="progress-container">
+                      <div class="progress"></div>
+                    </div>
+
+                    <div class="time">
+                      <span class="current-time">0:00</span>
+                      <span class="duration">0:00</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="slide">
+            <div class="audio-card">
+              <div class="audio-number">09</div>
+
+              <div class="audio-content">
+                <p class="audio-label">Аудиозапись</p>
+
+                <h1 class="audio-title">Мгновение</h1>
+
+                <p class="audio-description">
+                  Лишь одно мгновение, отделяло нас от самого крепкого объятия
+                </p>
+
+                <div class="player">
+                  <button class="play-button" aria-label="Воспроизвести">
+                    <svg class="play-icon" viewBox="0 0 24 24">
+                      <path d="M8 5L19 12L8 19V5Z" fill="currentColor" />
+                    </svg>
+
+                    <svg class="pause-icon" viewBox="0 0 24 24">
+                      <path
+                        d="M7 5V19M17 5V19"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </button>
+
+                  <div class="player-info">
+                    <div class="progress-container">
+                      <div class="progress"></div>
+                    </div>
+
+                    <div class="time">
+                      <span class="current-time">0:00</span>
+                      <span class="duration">0:00</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="slide">
+            <div class="audio-card">
+              <div class="audio-number">10</div>
+
+              <div class="audio-content">
+                <p class="audio-label">Аудиозапись</p>
+
+                <h1 class="audio-title">Первый снег</h1>
+
+                <p class="audio-description">
+                  Я тебя люблю, спасибо тебе за этот прикрасный мир, который я
+                  приобрел, полюбив тебя ❤
+                </p>
+
+                <div class="player">
+                  <button class="play-button" aria-label="Воспроизвести">
+                    <svg class="play-icon" viewBox="0 0 24 24">
+                      <path d="M8 5L19 12L8 19V5Z" fill="currentColor" />
+                    </svg>
+
+                    <svg class="pause-icon" viewBox="0 0 24 24">
+                      <path
+                        d="M7 5V19M17 5V19"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </button>
+
+                  <div class="player-info">
+                    <div class="progress-container">
+                      <div class="progress"></div>
+                    </div>
+
+                    <div class="time">
+                      <span class="current-time">0:00</span>
+                      <span class="duration">0:00</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Навигация -->
+      <footer class="navigation">
+        <button class="nav-button prev-button" aria-label="Предыдущая запись">
+          ←
+        </button>
+
+        <div class="dots" id="dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+
+        <button class="nav-button next-button" aria-label="Следующая запись">
+          →
+        </button>
+      </footer>
+
+      <p class="swipe-hint">Свайпните, чтобы продолжить</p>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

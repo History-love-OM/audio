@@ -1,0 +1,481 @@
+:root {
+  --background: #eadfd3;
+  --card: #997456;
+  --card-dark: #76563f;
+  --text: #3e2b20;
+  --text-light: #f5eee8;
+  --accent: #c8a98e;
+  --line: rgba(255, 255, 255, 0.25);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+
+  font-family: "Manrope", sans-serif;
+
+  overflow: hidden;
+}
+
+button {
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.audio-app {
+  width: 100%;
+  height: 100dvh;
+
+  min-height: 550px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: max(24px, env(safe-area-inset-top)) 20px
+    max(20px, env(safe-area-inset-bottom));
+
+  overflow: hidden;
+}
+
+/* ------------------------------
+   HEADER
+------------------------------ */
+
+.header {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  flex-shrink: 0;
+}
+
+.logo {
+  color: var(--text);
+
+  text-decoration: none;
+
+  font-family: "Great Vibes", cursive;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 40px;
+  /* font-family: "Cormorant Garamond", serif;
+  font-size: 24px;
+  font-weight: 600; */
+
+  letter-spacing: -0.02em;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+}
+
+.counter-divider {
+  opacity: 0.4;
+}
+
+/* ------------------------------
+   SLIDER
+------------------------------ */
+
+.slider {
+  width: 100%;
+  flex: 1;
+
+  min-height: 0;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+.slides {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+
+  will-change: transform;
+}
+
+.slide {
+  width: 100%;
+  height: 100%;
+
+  flex: 0 0 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px 0;
+}
+
+/* ------------------------------
+   AUDIO CARD
+------------------------------ */
+
+.audio-card {
+  position: relative;
+
+  width: 100%;
+  max-width: 420px;
+
+  min-height: 430px;
+
+  padding: 30px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  overflow: hidden;
+
+  border-radius: 28px;
+
+  background: linear-gradient(145deg, #a77f5d 0%, #997456 45%, #806046 100%);
+
+  color: var(--text-light);
+
+  box-shadow: 0 25px 60px rgba(70, 45, 30, 0.16);
+
+  isolation: isolate;
+}
+
+/*
+    Декоративный круг
+*/
+
+.audio-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 280px;
+  height: 280px;
+
+  right: -100px;
+  top: -90px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  box-shadow:
+    0 0 0 40px rgba(255, 255, 255, 0.025),
+    0 0 0 80px rgba(255, 255, 255, 0.02);
+
+  z-index: -1;
+}
+
+/* Номер */
+
+.audio-number {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(80px, 25vw, 130px);
+
+  line-height: 0.8;
+
+  font-weight: 500;
+
+  letter-spacing: -0.07em;
+
+  opacity: 0.2;
+}
+
+/* Контент */
+
+.audio-content {
+  width: 100%;
+}
+
+.audio-label {
+  margin-bottom: 8px;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.16em;
+
+  opacity: 0.65;
+}
+
+.audio-title {
+  max-width: 340px;
+
+  margin-bottom: 10px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(38px, 10vw, 54px);
+
+  font-weight: 600;
+
+  line-height: 0.95;
+
+  letter-spacing: -0.025em;
+}
+
+.audio-description {
+  max-width: 300px;
+
+  margin-bottom: 30px;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+
+  opacity: 0.7;
+}
+
+/* ------------------------------
+   PLAYER
+------------------------------ */
+
+.player {
+  display: flex;
+  align-items: center;
+
+  gap: 16px;
+
+  width: 100%;
+}
+
+.play-button {
+  width: 58px;
+  height: 58px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--text-light);
+  color: var(--card-dark);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.play-button:active {
+  transform: scale(0.92);
+}
+
+.play-icon,
+.pause-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.pause-icon {
+  display: none;
+}
+
+.player-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.progress-container {
+  width: 100%;
+  height: 4px;
+
+  margin-bottom: 9px;
+
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.25);
+
+  overflow: hidden;
+
+  cursor: pointer;
+}
+
+.progress {
+  width: 0;
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: var(--text-light);
+
+  transition: width 0.1s linear;
+}
+
+.time {
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 10px;
+
+  opacity: 0.6;
+}
+
+/* ------------------------------
+   NAVIGATION
+------------------------------ */
+
+.navigation {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  flex-shrink: 0;
+}
+
+.nav-button {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(62, 43, 32, 0.2);
+
+  border-radius: 50%;
+
+  font-size: 18px;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.nav-button:active {
+  background: var(--card);
+  color: white;
+}
+
+.dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: rgba(62, 43, 32, 0.25);
+
+  transition:
+    width 0.3s ease,
+    background 0.3s ease;
+}
+
+.dot.active {
+  width: 18px;
+
+  border-radius: 10px;
+
+  background: var(--card);
+}
+
+/* ------------------------------
+   SWIPE HINT
+------------------------------ */
+
+.swipe-hint {
+  margin-top: 12px;
+
+  text-align: center;
+
+  font-size: 9px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.15em;
+
+  opacity: 0.35;
+}
+
+/* ------------------------------
+   DESKTOP
+------------------------------ */
+
+@media (min-width: 700px) {
+  .audio-app {
+    max-width: 600px;
+
+    margin: 0 auto;
+
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .audio-card {
+    min-height: 500px;
+
+    padding: 40px;
+  }
+
+  .audio-title {
+    font-size: 58px;
+  }
+}
+
+/* ------------------------------
+   SMALL PHONES
+------------------------------ */
+
+@media (max-height: 680px) {
+  .slide {
+    padding: 15px 0;
+  }
+
+  .audio-card {
+    min-height: 380px;
+
+    padding: 24px;
+  }
+
+  .audio-number {
+    font-size: 80px;
+  }
+
+  .audio-title {
+    font-size: 38px;
+  }
+
+  .audio-description {
+    margin-bottom: 20px;
+  }
+}
