@@ -133,6 +133,35 @@ prevButton.addEventListener("click", prevSlide);
 
 const players = document.querySelectorAll(".player");
 
+/*
+|--------------------------------------------------------------------------
+| Предзагрузка длительности аудио
+|--------------------------------------------------------------------------
+*/
+
+const audioDurations = [];
+
+audioFiles.forEach((src, index) => {
+  const preloadAudio = new Audio();
+
+  preloadAudio.src = src;
+  preloadAudio.preload = "metadata";
+
+  preloadAudio.addEventListener("loadedmetadata", () => {
+    audioDurations[index] = preloadAudio.duration;
+
+    const player = players[index];
+
+    if (!player) {
+      return;
+    }
+
+    const duration = player.querySelector(".duration");
+
+    duration.textContent = formatTime(preloadAudio.duration);
+  });
+});
+
 players.forEach((player, index) => {
   const button = player.querySelector(".play-button");
 
@@ -286,47 +315,62 @@ audio.addEventListener("ended", () => {
 |--------------------------------------------------------------------------
 */
 
+let touchStartX = 0;
+let touchStartY = 0;
+
+const swipeThreshold = 40;
+
 slides.addEventListener(
   "touchstart",
   (event) => {
-    startX = event.touches[0].clientX;
+    const touch = event.changedTouches[0];
 
-    isDragging = true;
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
   },
   { passive: true },
 );
 
 slides.addEventListener(
-  "touchmove",
+  "touchend",
   (event) => {
-    if (!isDragging) {
+    const touch = event.changedTouches[0];
+
+    const differenceX = touch.clientX - touchStartX;
+
+    const differenceY = touch.clientY - touchStartY;
+
+    /*
+     * Если движение в основном вертикальное,
+     * считаем, что это не свайп карточки.
+     */
+
+    if (Math.abs(differenceY) > Math.abs(differenceX)) {
       return;
     }
 
-    currentX = event.touches[0].clientX;
-  },
-  { passive: true },
-);
+    /*
+     * Слишком короткое движение
+     * не считаем свайпом.
+     */
 
-slides.addEventListener("touchend", () => {
-  if (!isDragging) {
-    return;
-  }
+    if (Math.abs(differenceX) < swipeThreshold) {
+      return;
+    }
 
-  const difference = startX - currentX;
+    /*
+     * Свайп влево → следующая карточка.
+     * Свайп вправо → предыдущая карточка.
+     */
 
-  const threshold = 60;
-
-  if (Math.abs(difference) > threshold) {
-    if (difference > 0) {
+    if (differenceX < 0) {
       nextSlide();
     } else {
       prevSlide();
     }
-  }
-
-  isDragging = false;
-});
+  },
+  { passive: true },
+);
 
 /*
 |--------------------------------------------------------------------------
