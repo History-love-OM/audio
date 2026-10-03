@@ -7,7 +7,9 @@ const nextButton = document.querySelector(".next-button");
 const currentNumber = document.querySelector("#currentNumber");
 const totalNumber = document.querySelector("#totalNumber");
 
-const dots = document.querySelectorAll(".dot");
+const dotsContainer = document.querySelector("#dots");
+
+const maxVisibleDots = 5;
 
 const totalSlides = slideElements.length;
 
@@ -80,11 +82,45 @@ function updateSlider() {
 
   currentNumber.textContent = String(currentSlide + 1).padStart(2, "0");
 
-  dots.forEach((dot, index) => {
-    dot.classList.toggle("active", index === currentSlide);
-  });
-
+  updateDots();
   stopAudio();
+}
+
+/*
+|--------------------------------------------------------------------------
+| Dots
+|--------------------------------------------------------------------------
+*/
+
+function updateDots() {
+  dotsContainer.innerHTML = "";
+
+  const visibleDots = Math.min(totalSlides, maxVisibleDots);
+
+  let startIndex = currentSlide - 2;
+
+  // В начале показываем точки 1–5
+  if (startIndex < 0) {
+    startIndex = 0;
+  }
+
+  // В конце показываем последние 5 точек
+  if (startIndex > totalSlides - visibleDots) {
+    startIndex = totalSlides - visibleDots;
+  }
+
+  for (let i = 0; i < visibleDots; i++) {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+
+    const slideIndex = startIndex + i;
+
+    if (slideIndex === currentSlide) {
+      dot.classList.add("active");
+    }
+
+    dotsContainer.appendChild(dot);
+  }
 }
 
 /*
@@ -315,15 +351,17 @@ audio.addEventListener("ended", () => {
 |--------------------------------------------------------------------------
 */
 
+const slider = document.querySelector(".slider");
+
 let touchStartX = 0;
 let touchStartY = 0;
 
 const swipeThreshold = 40;
 
-slides.addEventListener(
+slider.addEventListener(
   "touchstart",
   (event) => {
-    const touch = event.changedTouches[0];
+    const touch = event.touches[0];
 
     touchStartX = touch.clientX;
     touchStartY = touch.clientY;
@@ -331,7 +369,7 @@ slides.addEventListener(
   { passive: true },
 );
 
-slides.addEventListener(
+slider.addEventListener(
   "touchend",
   (event) => {
     const touch = event.changedTouches[0];
@@ -341,8 +379,7 @@ slides.addEventListener(
     const differenceY = touch.clientY - touchStartY;
 
     /*
-     * Если движение в основном вертикальное,
-     * считаем, что это не свайп карточки.
+     * Игнорируем вертикальный скролл.
      */
 
     if (Math.abs(differenceY) > Math.abs(differenceX)) {
@@ -350,8 +387,7 @@ slides.addEventListener(
     }
 
     /*
-     * Слишком короткое движение
-     * не считаем свайпом.
+     * Игнорируем слишком короткое движение.
      */
 
     if (Math.abs(differenceX) < swipeThreshold) {
@@ -359,8 +395,8 @@ slides.addEventListener(
     }
 
     /*
-     * Свайп влево → следующая карточка.
-     * Свайп вправо → предыдущая карточка.
+     * Влево → следующая карточка
+     * Вправо → предыдущая карточка
      */
 
     if (differenceX < 0) {
